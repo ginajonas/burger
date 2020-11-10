@@ -1,6 +1,6 @@
 const connection = require('./connection.js')
 
-// ORM example
+
 const orm = {
   selectAll: function(table, cb){
     return connection.query(`
@@ -25,6 +25,15 @@ const orm = {
       SET ?
       WHERE ${condition}
     `, vals, function(err, result){
+      if (err) throw err
+      cb(result)
+    });
+  },
+  deleteOne: function(table, condition, cb){
+    return connection.query(`
+      DELETE FROM ${table}
+      WHERE ${condition}
+    `,  function(err, result){
       if (err) throw err
       cb(result)
     });
