@@ -1,8 +1,8 @@
 
 
 <div class="container">
-    <div class="row">
-        <div class="col-md-12">
+    <div class="row topRow">
+        <div class="col-md-12 ">
             <h2>Create a burger</h2>
             <form method="POST" action="/burgers" >
                 <input type="text" name="burger_name" />
@@ -10,6 +10,8 @@
                 
             </form>
         </div>
+    </div>
+    <div class="row">
         <div class="col-md-4">
             <h2>Undevoured burgers</h2>
             <ul>
@@ -23,13 +25,13 @@
                 {{/each}}
             </ul>
         </div>
-        <div class= "col-md-4"><img style="width:200px ;" src="butger_pic.jpg" alt="Burger"></div>
+        <div class= "col-md-4"><img id="pic"  src="burger_pic.jpg" alt="Burger"></div>
         <div class="col-md-4">
             <h2>Devoured burgers</h2>
             <ul>
                 {{#each burgers}}
                     {{#if this.devoured}}
-                        <li>{{burger_name}} <button onclick="deleteTheBurger(this)" data-id="{{this.id}}">Delete burger</button></li>
+                        <li>{{burger_name}} <button onclick="deleteTheBurger(this)"class="fa fa-trash" data-id="{{this.id}}"></button></li>
                         
                     {{/if}}
                 {{/each}}
